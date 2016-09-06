@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Slide</title>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+          name="viewport">
+    <link href="http://lab.hakim.se/reveal-js/css/reveal.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/black.css" id="theme">
+    <link href="http://lab.hakim.se/reveal-js/lib/css/zenburn.css" rel="stylesheet">
+    <script>document.write('<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');</script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section><h1>简历解析</h1></section>
+        <section>
+            <section><h2>介绍</h2></section>
+            <section>
+                <h3>简历解析是什么?</h3>
+                <div class="fragment" data-fragment-index="1">
+                    <p>
+                        简历解析(也叫作简历抽取)指的是把各种格式(free-from)的简历转化成文本,之后对其进行抽取(解析),获得结构化便于存储的数据.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3>它可以带来什么便利?</h3>
+            </section>
+            <section>
+                <h3>运用在招聘首页上</h3>
+                <div class="paragraph">
+                    <p>提供给候选人一键式,非常友好地投递过程.</p>
+                </div>
+            </section>
+            <section>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>更好的获取简历并且易于建立强大的人才库.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>提高了候选人的体验,增强了公司的雇主品牌(employer brand).</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>通过增加转化率而提高回报率(ROI).</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>运用招聘系统上</h3>
+                <div class="paragraph">
+                    <p>将简历解析集成到招聘系统工作流,自动地处理候选人投递的简历.</p>
+                </div>
+            </section>
+            <section>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>节约了hr人工输入数据的时间.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>极大的方便hr筛选有价值的候选人.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>市面上的简历解析系统</h3>
+                <div class="ulist">
+                    <ul>
+                        <li><p>大易(6000+? BAT)</p></li>
+                        <li><p>捕鱼网</p></li>
+                        <li><p>云解析</p></li>
+                        <li><p>简历分析</p></li>
+                        <li><p>daxtra(25 partners)</p></li>
+                        <li><p>textkernel(42 partners)</p></li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <div class="ulist">
+                    <ul>
+                        <li><p>转化(conversion)</p></li>
+                        <li><p>解析(parser), 抽取(extract)</p></li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>转化(conversion)</h3>
+                <div class="paragraph">
+                    <p>将pdf,docx,doc转化成文本</p>
+                </div>
+                <div class="ulist">
+                    <ul>
+                        <li><p>pdftotext(x pdfminer)</p></li>
+                        <li><p>docx2txt(x python-docx)</p></li>
+                        <li><p>antiword(x catdoc)</p></li>
+
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="ulist">
+                    <h3>信息失真问题</h3>
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>丢失图片、照片、声音 、动画和影片.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>丢失文字的样式</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>丢失文字的位置!.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>转化失败</h3>
+                <ul>
+                    <li class="fragment" data-fragment-index="1">
+                        <p>pdf加密导致找不到字符集.</p>
+                    </li>
+                    <li class="fragment" data-fragment-index="2">
+                        <p>纯粹的图片. OCR</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>解析(parser), 抽取(extract)</h3>
+                <div class="paragraph">
+                    <p>将文本里的信息解析成结构化数据</p>
+                </div>
+                <div class="ulist">
+                    <ul>
+                        <li><p>姓名</p></li>
+                        <li><p>手机</p></li>
+                        <li><p>邮箱</p></li>
+                        <li><p>学校</p></li>
+                        <li><p>性别</p></li>
+                        <li><p>年龄</p></li>
+                        <li><p>生日</p></li>
+                        <li><p>身份证号</p></li>
+                        <li><p>学历</p></li>
+                        <li><p>教育信息</p></li>
+                        <li><p>实习经历</p></li>
+                        <li><p>工作经历</p></li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>目前的做法:</h3>
+                <h1 class="fragment" data-fragment-index="1">人工学习</h1>
+            </section>
+            <section>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>巧妙的特征</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>运气好的规则</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>正确的judge姿势</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>既巨大又优秀的样本集</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+
+            </section>
+            <section>
+                <h3>特征</h3>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>位置</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>字段长度</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>百家姓开头</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>是否在文件名中 important!</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="5">
+                            <p>黑名单</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="6">
+                            <p><span style="text-decoration:line-through;">姓名: XX</span></p>
+                        </li>
+                        <li class="fragment" data-fragment-index="7">
+                            <p><span style="text-decoration:line-through;">是否可以分词</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>规则</h3>
+                <div class="paragraph">
+                    <p>
+                        找出<span style="text-decoration:line-through;">'姓名'后面</span>所有以姓氏开头长度为2,3不在黑名单的字符串.以位置为第一关键字,
+                        长度为第二关键字进行排序.从头开始枚举,如果字符串出现在文件名中,则认定改字符串为`姓名`.如果枚举完没有发现符合条件的字符串就输出第一个字符串
+                    </p>
+                </div>
+            </section>
+            <section>
+                <h3>judge</h3>
+                <div class="paragraph">
+                    <p>
+                        枚举所有简历,如果'正确'字段和抽取字段相同则ok+1
+                    </p>
+                </div>
+            </section>
+
+        </section>
+    </div>
+</div>
+<script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+<script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+<script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+    // Display controls in the bottom right corner
+    controls: true,
+    // Display a presentation progress bar
+    progress: true,
+    // Display the page number of the current slide
+    slideNumber: false,
+    // Push each slide change to the browser history
+    history: true,
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+    // Enable the slide overview mode
+    overview: true,
+    // Vertical centering of slides
+    center: true,
+    // Enables touch navigation on devices with touch input
+    touch: true,
+    // Loop the presentation
+    loop: false,
+    // Change the presentation direction to be RTL
+    rtl: false,
+    // Turns fragments on and off globally
+    fragments: true,
+    // Flags if the presentation is running in an embedded mode,
+    // i.e. contained within a limited portion of the screen
+    embedded: false,
+    // Number of milliseconds between automatically proceeding to the
+    // next slide, disabled when set to 0, this value can be overwritten
+    // by using a data-autoslide attribute on your slides
+    autoSlide: 0,
+    // Stop auto-sliding after user input
+    autoSlideStoppable: true,
+    // Enable slide navigation via mouse wheel
+    mouseWheel: false,
+    // Hides the address bar on mobile devices
+    hideAddressBar: true,
+    // Opens links in an iframe preview overlay
+    previewLinks: false,
+    // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+    // NOTE setting the theme in the config no longer works in reveal.js 3.x
+    //theme: Reveal.getQueryHash().theme || 'black',
+    // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+    transition: Reveal.getQueryHash().transition || 'convex',
+    // Transition speed (e.g., default, fast, slow)
+    transitionSpeed: 'default',
+    // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+    backgroundTransition: 'fade',
+    // Number of slides away from the current that are visible
+    viewDistance: 3,
+    // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/http://lab.hakim.se/reveal-js/reveal-parallax-1.jpg'")
+    parallaxBackgroundImage: '',
+    // Parallax background size in CSS syntax (e.g., "2100px 900px")
+    parallaxBackgroundSize: '',
+
+    // The "normal" size of the presentation, aspect ratio will be preserved
+    // when the presentation is scaled to fit different resolutions. Can be
+    // specified using percentage units.
+    width: 960,
+    height: 700,
+
+    // Factor of the display size that should remain empty around the content
+    margin: 0.1,
+
+    // Bounds for smallest/largest possible scale to apply to content
+    minScale: 0.2,
+    maxScale: 1.5,
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+        }
+        },
+        {
+            src: 'http://lab.hakim.se/reveal-js/plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'http://lab.hakim.se/reveal-js/plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+
+        {
+            src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        },
+        {
+            src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        }
+    ]
+});</script>
+</body>
+</html>
