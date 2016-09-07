@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Slide</title>
+    <title>简历解析</title>
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
           name="viewport">
-    <link href="https://nhywieza.github.io/reveal-js/css/reveal.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://nhywieza.github.io/reveal-js/css/theme/black.css" id="theme">
-    <link href="https://nhywieza.github.io/reveal-js/lib/css/zenburn.css" rel="stylesheet">
-    <script>document.write('<link rel="stylesheet" href="https://nhywieza.github.io/reveal-js/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');</script>
+    <link href="../../reveal-js/css/reveal.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../reveal-js/css/theme/black.css" id="theme">
+    <link href="../../reveal-js/lib/css/zenburn.css" rel="stylesheet">
+    <script>document.write('<link rel="stylesheet" href="../../reveal-js/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');</script>
 </head>
 <body>
 <div class="reveal">
@@ -220,16 +220,62 @@
                 <h3>judge</h3>
                 <div class="paragraph">
                     <p>
-                        枚举所有简历,如果'正确'字段和抽取字段相同则ok+1
+                        枚举所有简历,如果'正确'字段和抽取字段相同则ok=ok+1,<span style="text-decoration:line-through;">total为简历样本总数</span>,
+                        total为文本里出现'正确'字段的简历的总数,正确率=ok/total*100%
                     </p>
                 </div>
             </section>
-
+            <section>
+                <h3>样本集</h3>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>校招实习简历(1000+,纯人工标注,耗时)</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>目前的人才库(19000+,本以为是优秀的样本集)</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>Case 1</h3>
+                <div class="imageblock">
+                    <div><img src="img/case/1.png" alt="1"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div><img src="img/case/2.png" alt="2"></div>
+                </div>
+            </section>
+            <section>
+                <h3>Case 2</h3>
+                <div class="imageblock">
+                    <div><img src="img/case/3.png" alt="3"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div><img src="img/case/4.png" alt="4"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div><img src="img/case/5.png" alt="5"></div>
+                </div>
+            </section>
+            <section>
+                <h3>Case 3</h3>
+                <div class="imageblock">
+                    <div><img src="img/case/6.png" alt="6"></div>
+                </div>
+            </section>
         </section>
     </div>
 </div>
-<script src="https://nhywieza.github.io/reveal-js/lib/js/head.min.js"></script>
-<script src="https://nhywieza.github.io/reveal-js/js/reveal.js"></script>
+<script src="../../reveal-js/lib/js/head.min.js"></script>
+<script src="../../reveal-js/js/reveal.js"></script>
 <script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
     // Display controls in the bottom right corner
@@ -280,7 +326,7 @@ Reveal.initialize({
     backgroundTransition: 'fade',
     // Number of slides away from the current that are visible
     viewDistance: 3,
-    // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/https://nhywieza.github.io/reveal-js/reveal-parallax-1.jpg'")
+    // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/../../reveal-js/reveal-parallax-1.jpg'")
     parallaxBackgroundImage: '',
     // Parallax background size in CSS syntax (e.g., "2100px 900px")
     parallaxBackgroundSize: '',
@@ -301,28 +347,28 @@ Reveal.initialize({
     // Optional libraries used to extend on reveal.js
     dependencies: [
         {
-            src: 'https://nhywieza.github.io/reveal-js/lib/js/classList.js', condition: function () {
+            src: '../../reveal-js/lib/js/classList.js', condition: function () {
             return !document.body.classList;
         }
         },
         {
-            src: 'https://nhywieza.github.io/reveal-js/plugin/markdown/marked.js', condition: function () {
+            src: '../../reveal-js/plugin/markdown/marked.js', condition: function () {
             return !!document.querySelector('[data-markdown]');
         }
         },
         {
-            src: 'https://nhywieza.github.io/reveal-js/plugin/markdown/markdown.js', condition: function () {
+            src: '../../reveal-js/plugin/markdown/markdown.js', condition: function () {
             return !!document.querySelector('[data-markdown]');
         }
         },
 
         {
-            src: 'https://nhywieza.github.io/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function () {
+            src: '../../reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function () {
             return !!document.body.classList;
         }
         },
         {
-            src: 'https://nhywieza.github.io/reveal-js/plugin/notes/notes.js', async: true, condition: function () {
+            src: '../../reveal-js/plugin/notes/notes.js', async: true, condition: function () {
             return !!document.body.classList;
         }
         }
