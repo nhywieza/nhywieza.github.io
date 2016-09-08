@@ -11,11 +11,39 @@
     <link rel="stylesheet" href="../../reveal-js/css/theme/black.css" id="theme">
     <link href="../../reveal-js/lib/css/zenburn.css" rel="stylesheet">
     <script>document.write('<link rel="stylesheet" href="../../reveal-js/css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');</script>
+    <style>
+        .my-style-common {
+            text-align: center;
+            margin: 0 auto !important;
+        }
+
+        .case-1 {
+            width: 70%;
+        }
+
+        .case-3 {
+            width: 50%;
+        }
+
+        .case-6 {
+            width: 45%;
+        }
+
+        .case-7 {
+            width: 25%;
+        }
+
+        .case-15 {
+            width: 65%;
+        }
+    </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section><h1>简历解析</h1></section>
+        <section>
+            <h1><a href="http://10.2.97.14:9925/parser/">简历解析</a></h1>
+        </section>
         <section>
             <section><h2>介绍</h2></section>
             <section>
@@ -34,8 +62,6 @@
                 <div class="paragraph">
                     <p>提供给候选人一键式,非常友好地投递过程.</p>
                 </div>
-            </section>
-            <section>
                 <div class="ulist">
                     <ul>
                         <li class="fragment" data-fragment-index="1">
@@ -55,8 +81,6 @@
                 <div class="paragraph">
                     <p>将简历解析集成到招聘系统工作流,自动地处理候选人投递的简历.</p>
                 </div>
-            </section>
-            <section>
                 <div class="ulist">
                     <ul>
                         <li class="fragment" data-fragment-index="1">
@@ -72,12 +96,12 @@
                 <h3>市面上的简历解析系统</h3>
                 <div class="ulist">
                     <ul>
-                        <li><p>大易(6000+? BAT)</p></li>
-                        <li><p>捕鱼网</p></li>
-                        <li><p>云解析</p></li>
-                        <li><p>简历分析</p></li>
-                        <li><p>daxtra(25 partners)</p></li>
-                        <li><p>textkernel(42 partners)</p></li>
+                        <li><p><a href="http://www.wintalent.com/wt/dayee/index">大易</a>(6000+? BAT)</p></li>
+                        <li><p><a href="http://www.buyu-tech.com/buyurecruit/">捕鱼网</a></p></li>
+                        <li><p><a href="http://youyun.com/">云解析</a></p></li>
+                        <li><p><a href="http://resumesdk.com//">resumesdk</a></p></li>
+                        <li><p><a href="https://www2.daxtra.com/">daxtra</a>(25partners)</p></li>
+                        <li><p><a href="http://www.textkernel.com/">textkernel</a>(42partners)</p></li>
                     </ul>
                 </div>
             </section>
@@ -139,10 +163,10 @@
                 </div>
                 <div class="ulist">
                     <ul>
-                        <li><p>姓名</p></li>
-                        <li><p>手机</p></li>
-                        <li><p>邮箱</p></li>
-                        <li><p>学校</p></li>
+                        <li><p>姓名()(?-883/?)</p></li>
+                        <li><p>手机(8/705)(?-67/?)</p></li>
+                        <li><p>邮箱(5/922)(?-66/?)</p></li>
+                        <li><p>学校(247/868)(?-3717/?)</p></li>
                         <li><p>性别</p></li>
                         <li><p>年龄</p></li>
                         <li><p>生日</p></li>
@@ -209,20 +233,47 @@
             </section>
             <section>
                 <h3>规则</h3>
-                <div class="paragraph">
-                    <p>
-                        找出<span style="text-decoration:line-through;">'姓名'后面</span>所有以姓氏开头长度为2,3不在黑名单的字符串.以位置为第一关键字,
-                        长度为第二关键字进行排序.从头开始枚举,如果字符串出现在文件名中,则认定改字符串为`姓名`.如果枚举完没有发现符合条件的字符串就输出第一个字符串
-                    </p>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>找出<span style="text-decoration:line-through;">'姓名'后面</span>所有以姓氏开头长度为2,3不在黑名单的字符串.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>以位置为第一关键字,长度为第二关键字进行排序.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>从头开始枚举,如果字符串出现在文件名中,则认定改字符串为`姓名`.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>如果枚举完没有发现符合条件的字符串就输出第一个字符串.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="5">
+                            <p>ps: 每更改一个规则必须跑一次样本集, 可能出现的情况是这个BAD CASE过了,但是又会新增更多的BAD CASE.</p>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <section>
                 <h3>judge</h3>
-                <div class="paragraph">
-                    <p>
-                        枚举所有简历,如果'正确'字段和抽取字段相同则ok=ok+1,<span style="text-decoration:line-through;">total为简历样本总数</span>,
-                        total为文本里出现'正确'字段的简历的总数,正确率=ok/total*100%
-                    </p>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>枚举所有简历,如果'正确'字段和抽取字段相同则ok=ok+1</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p><span style="text-decoration:line-through;">total为简历样本总数</span>,
+                                total为文本里出现'正确'字段的简历的总数.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>从头开始枚举,如果字符串出现在文件名中,则认定改字符串为`姓名`.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>正确率=ok/total*100%.</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="5">
+                            <p>ps: judge规则以来改进规则,所以一个合理的judge才能使规则更好.</p>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <section>
@@ -233,7 +284,31 @@
                             <p>校招实习简历(1000+,纯人工标注,耗时)</p>
                         </li>
                         <li class="fragment" data-fragment-index="2">
-                            <p>目前的人才库(19000+,本以为是优秀的样本集)</p>
+                            <p>目前的人才库(20000+,本以为是优秀的样本集, 这周引入)</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </section>
+        <section>
+            <section><h2>目前遇到的问题</h2>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>排版奇葩的简历和转化时的信息丢失</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>规则不够强大</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            字典不够强大(姓氏,公司,黑名单)
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>没有优秀的样本集(标注需要大量时间)</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="5">
+                            <p>算法知识匮乏</p>
                         </li>
                     </ul>
                 </div>
@@ -241,36 +316,139 @@
             <section>
                 <h3>Case 1</h3>
                 <div class="imageblock">
-                    <div><img src="img/case/1.png" alt="1"></div>
+                    <div class="my-style-common case-1"><img src="img/case/1.png" alt="1"></div>
                 </div>
             </section>
             <section>
                 <div class="imageblock">
-                    <div><img src="img/case/2.png" alt="2"></div>
+                    <div class="my-style-common case-2"><img src="img/case/2.png" alt="2"></div>
                 </div>
             </section>
             <section>
                 <h3>Case 2</h3>
                 <div class="imageblock">
-                    <div><img src="img/case/3.png" alt="3"></div>
+                    <div class="my-style-common case-3"><img src="img/case/3.png" alt="3"></div>
                 </div>
             </section>
             <section>
                 <div class="imageblock">
-                    <div><img src="img/case/4.png" alt="4"></div>
+                    <div class="my-style-common case-4"><img src="img/case/4.png" alt="4"></div>
                 </div>
             </section>
             <section>
                 <div class="imageblock">
-                    <div><img src="img/case/5.png" alt="5"></div>
+                    <div class="my-style-common case-5"><img src="img/case/5.png" alt="5"></div>
                 </div>
             </section>
             <section>
                 <h3>Case 3</h3>
                 <div class="imageblock">
-                    <div><img src="img/case/6.png" alt="6"></div>
+                    <div class="my-style-common case-6"><img src="img/case/6.png" alt="6"></div>
                 </div>
             </section>
+            <section>
+                <h3>Case 4</h3>
+                <div class="imageblock">
+                    <div class="my-style-common case-7"><img src="img/case/7.png" alt="7"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-8"><img src="img/case/8.png" alt="8"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-9"><img src="img/case/9.png" alt="9"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-10"><img src="img/case/10.png" alt="10"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-11"><img src="img/case/11.png" alt="11"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-12"><img src="img/case/12.png" alt="12"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-13"><img src="img/case/13.png" alt="13"></div>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-14"><img src="img/case/14.png" alt="14"></div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h2>接下来的要做的事</h2>
+            <section>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>寻找更强大的文本转换器 (调研<a href="https://tika.apache.org/"> Apache Tika</a>)</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>改进规则</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>自动化扩大字典</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="4">
+                            <p>建立独立的测试库,保证数据的正确性</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="5">
+                            <p>引入机器学习</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section><h2>个人不成熟的看法</h2></section>
+            <section>
+                <h3>机器学习的一般步骤</h3>
+                <div class="ulist">
+                    <ul>
+                        <li class="fragment" data-fragment-index="1">
+                            <p>使用机器学习来解决问题，我们用数学语言来描述它，然后建立一个模型，例如回归模型或者分类模型等来描述这个问题；</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="2">
+                            <p>通过最小化误差、最大似然、最大后验概率等等建立模型的代价函数，转化为最优化问题。找到最优化问题的解，也就是能拟合我们的数据的最好的模型参数；</p>
+                        </li>
+                        <li class="fragment" data-fragment-index="3">
+                            <p>求解这个代价函数，找到最优解。</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="paragraph">
+                    <p>对比一下,会发现,提特征,定规则好比是建立模型,代价函数好比judge函数,然后都是求解这个代价函数最优解.</p>
+                    <p>不一样的是,求解函数的过程.机器学习是机器来做,所以,我也尝试过让机器来做,但是由于知(tai)识(ruo)匮(le)乏,并没有取得多好的效果.</p>
+                    <p>我认为,靠`经验`的事(调参),是不是都可以用机器学习?它就好比一个黑盒,我们并不关心里面的规则(这些规则很难去描述),只需要</p>
+                    <p>它的结果.我把它yy成统计学,经过大量统计(监督学习),总结出...(最优解)</p>
+                </div>
+            </section>
+            <section>
+                <div class="imageblock">
+                    <div class="my-style-common case-15"><img src="img/case/15.png" alt="15"></div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h1>Q & A</h1>
+        </section>
+        <section>
+            <h1>Thanks</h1>
         </section>
     </div>
 </div>
